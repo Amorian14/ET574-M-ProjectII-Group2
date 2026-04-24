@@ -1,4 +1,6 @@
-Issue,Status,Commit Message
-Created abs_val function,Closed,Added abs_val and area_of_circle functions
-Created area_of_circle function,Closed,Added abs_val and area_of_circle functions
-Added unit tests,Closed,Added unit tests for abs_val and area_of_circle
+ID,TYPE,COMMIT,STATUS,DESCRIPTION,REPORTER,ASSIGNEE,DUE,CREATED,RESOLVED,NOTES
+1,task,468a92b,closed,Create abs_val function,David,David,4/24/2026,4/24/2026,4/24/2026,
+2,task,468a92b,closed,Create area_of_circle function,David,David,4/24/2026,4/24/2026,4/24/2026,
+3,task,3127bc2,closed,Add unit tests,David,David,4/24/2026,4/24/2026,4/24/2026,
+4,task,f63faa8,closed,Add issue tracking file,David,David,4/24/2026,4/24/2026,4/24/2026,
+5,task,80aece1,closed,Initial repository setup,Ajani,Ajani,4/22/2026,4/22/2026,4/22/2026,Partner initial commit
