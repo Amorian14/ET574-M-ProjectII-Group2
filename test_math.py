@@ -1,3 +1,7 @@
+import unittest
+
+from my_math import pow_xy, distance
+
 class TestPowXY(unittest.TestCase):
     def test_positive_exponent(self):
         self.assertEqual(pow_xy(2, 3), 8)
