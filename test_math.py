@@ -1,5 +1,5 @@
 import unittest
-from my_math import abs_val, area_of_circle
+from my_math import abs_val, area_of_circle, circumference_of_circle
 
 class TestMyMath(unittest.TestCase):
 
@@ -36,6 +36,16 @@ class TestMyMath(unittest.TestCase):
 
     def test_area_small(self):
         self.assertAlmostEqual(area_of_circle(0.5), 0.7854)
+
+    def test_circumference_basic(self):
+        self.assertAlmostEqual(circumference_of_circle(2), 12.5664)
+
+    def test_circumference_zero(self):
+        self.assertEqual(circumference_of_circle(0), 0)
+
+    def test_circumference_invalid(self):
+        with self.assertRaises(ValueError):
+            circumference_of_circle(-1)
 
 
 if __name__ == "__main__":
