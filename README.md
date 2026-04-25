@@ -5,3 +5,4 @@ Ajani Morian:
 Testing Responsibilities:
 - Wrote tests for pow_xy and distance.
 - Wrote tests for one function from each teammate.
+-
