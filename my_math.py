@@ -1,100 +1,60 @@
-"""
-my_math.py
-Custom Math Function Library for ET-574 Project II.
-
-This module contains all group-defined mathematical functions, including:
-- Core functions assigned to each team member
-- Original math functions created by each member
-
-All functions are implemented without using Python's built-in math module.
-
-Group: ET574-M-ProjectII-Group2
-Members: Morian, Ajani | Scott Dickens, Kadeem | Tiburcio, David
-"""
-
-
-def abs_val(x):
+def pow_xy(x, y):
     """
-    Name: abs_val
-    Purpose: Return the absolute value of x without using Python's built-in abs().
+    Name: pow_xy
+    Purpose: Compute x raised to the power y without using Python's built-in pow().
     Parameters:
-        x (int or float): A numeric value.
+        x (int or float): Base value.
+        y (int): Exponent (must be an integer).
     Returns:
-        int or float: The absolute value of x.
+        int or float: x raised to the power y.
     Raises:
-        TypeError: If x is not a number.
+        TypeError: If x is not a number or y is not an integer.
     """
     if not isinstance(x, (int, float)):
-        raise TypeError("abs_val only accepts int or float")
+        raise TypeError("Base must be a number")
+    if not isinstance(y, int):
+        raise TypeError("Exponent must be an integer")
 
-    if x < 0:
-        return -x
-    return x
+    if y == 0:
+        return 1
+    if y < 0:
+        return 1 / pow_xy(x, -y)
 
+    result = 1
+    for _ in range(y):
+        result *= x
 
-def gcd_two(a, b):
+    return result
+
+def distance(x1, y1, x2, y2):
     """
-    Name: gcd_two
-    Purpose: Compute the greatest common divisor (GCD) of two integers using the Euclidean algorithm.
+    Name: distance
+    Purpose: Compute the distance between two points (x1, y1) and (x2, y2)
+             without using the math module.
     Parameters:
-        a (int): First integer.
-        b (int): Second integer.
+        x1 (int or float): x-coordinate of the first point.
+        y1 (int or float): y-coordinate of the first point.
+        x2 (int or float): x-coordinate of the second point.
+        y2 (int or float): y-coordinate of the second point.
     Returns:
-        int: The greatest common divisor of a and b.
-    """
-    a, b = abs(a), abs(b)
-    while b != 0:
-        a, b = b, a % b
-    return a
-
-
-def lcm(*args):
-    """
-    Name: lcm
-    Purpose: Compute the least common multiple (LCM) of two or more integers.
-    Parameters:
-        *args (int): Two or more integers.
-    Returns:
-        int: The LCM of all provided integers.
+        float: The distance between the two points.
     Raises:
-        ValueError: If fewer than two integers are provided.
-        TypeError: If any argument is not an integer.
+        TypeError: If any parameter is not a number.
     """
-    if len(args) < 2:
-        raise ValueError("lcm requires at least two integers")
+    for v in (x1, y1, x2, y2):
+        if not isinstance(v, (int, float)):
+            raise TypeError("All coordinates must be numbers")
 
-    for n in args:
-        if not isinstance(n, int):
-            raise TypeError("All arguments to lcm must be integers")
+    dx = x2 - x1
+    dy = y2 - y1
+    squared = dx * dx + dy * dy
 
-    def lcm_two(a, b):
-        if a == 0 or b == 0:
-            return 0
-        return abs(a * b) // gcd_two(a, b)
+    if squared == 0:
+        return 0.0
 
-    current = args[0]
-    for n in args[1:]:
-        current = lcm_two(current, n)
+    guess = squared
+    for _ in range(20):
+        guess = 0.5 * (guess + squared / guess)
 
-    return current
+    return guess
 
-
-def area_of_circle(r):
-    """
-    Name: area_of_circle
-    Purpose: Compute the area of a circle with radius r.
-    Parameters:
-        r (float or int): Radius of the circle. Must be non-negative.
-    Returns:
-        float: Area of the circle.
-    Raises:
-        ValueError: If r is negative.
-        TypeError: If r is not a number.
-    """
-    if not isinstance(r, (int, float)):
-        raise TypeError("Radius must be a number")
-    if r < 0:
-        raise ValueError("Radius cannot be negative")
-
-    pi = 3.141592653589793
-    return pi * r * r

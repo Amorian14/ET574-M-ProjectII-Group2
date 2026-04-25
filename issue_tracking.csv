@@ -1,18 +1,4 @@
-issue_id,description,status,commit_id
-1,Create GitHub repository and add collaborators,closed,<commit-hash>
-2,Set up initial project structure in Codespaces,closed,<commit-hash>
-3,Add module docstring to my_math.py,closed,<commit-hash>
-4,Implement abs_val core function,closed,<commit-hash>
-5,Implement lcm core function,closed,<commit-hash>
-6,Implement area_of_circle original function,closed,<commit-hash>
-7,Write docstrings for all functions,closed,<commit-hash>
-8,Write unit tests for abs_val in test_math.py,closed,<commit-hash>
-9,Write unit tests for lcm in test_math.py,closed,<commit-hash>
-10,Write unit tests for area_of_circle in test_math.py,closed,<commit-hash>
-11,Run all tests and verify they pass,closed,<commit-hash>
-12,Create README.md with group info and function ownership,closed,<commit-hash>
-13,Review teammate code and resolve merge conflicts if any,closed,<commit-hash>
-14,Open and close GitHub issues for each task,closed,<commit-hash>
-15,Commit and push final code to GitHub,closed,<commit-hash>
-16,Take screenshots for PDF submission (collaborators, code, tests, commits, issues),closed,<commit-hash>
-17,Final project verification and cleanup,closed,<commit-hash>
+1,Implement pow_xy core function,closed,<commit-hash>
+2,Implement distance original function,closed,<commit-hash>
+3,Write tests for pow_xy,closed,<commit-hash>
+4,Write tests for distance,closed,<commit-hash>

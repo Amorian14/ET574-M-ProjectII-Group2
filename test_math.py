@@ -1,53 +1,34 @@
-import unittest
-from my_math import abs_val, lcm, area_of_circle
+class TestPowXY(unittest.TestCase):
+    def test_positive_exponent(self):
+        self.assertEqual(pow_xy(2, 3), 8)
 
+    def test_zero_exponent(self):
+        self.assertEqual(pow_xy(5, 0), 1)
 
-class TestAbsVal(unittest.TestCase):
-    def test_positive(self):
-        self.assertEqual(abs_val(5), 5)
+    def test_negative_exponent(self):
+        self.assertAlmostEqual(pow_xy(2, -2), 0.25)
 
-    def test_negative(self):
-        self.assertEqual(abs_val(-3.5), 3.5)
+    def test_invalid_base_type(self):
+        with self.assertRaises(TypeError):
+            pow_xy("2", 3)
+
+    def test_invalid_exponent_type(self):
+        with self.assertRaises(TypeError):
+            pow_xy(2, 3.5)
+
+class TestDistance(unittest.TestCase):
+    def test_same_point(self):
+        self.assertEqual(distance(0, 0, 0, 0), 0.0)
+
+    def test_horizontal_distance(self):
+        self.assertAlmostEqual(distance(0, 0, 3, 0), 3.0, places=5)
+
+    def test_vertical_distance(self):
+        self.assertAlmostEqual(distance(0, 0, 0, 4), 4.0, places=5)
+
+    def test_diagonal_distance(self):
+        self.assertAlmostEqual(distance(0, 0, 3, 4), 5.0, places=2)
 
     def test_invalid_type(self):
         with self.assertRaises(TypeError):
-            abs_val("hello")
-
-
-class TestLCM(unittest.TestCase):
-    def test_two_numbers(self):
-        self.assertEqual(lcm(4, 6), 12)
-
-    def test_multiple_numbers(self):
-        self.assertEqual(lcm(3, 4, 5), 60)
-
-    def test_zero_case(self):
-        self.assertEqual(lcm(0, 10), 0)
-
-    def test_invalid_type(self):
-        with self.assertRaises(TypeError):
-            lcm(3, "x")
-
-    def test_not_enough_args(self):
-        with self.assertRaises(ValueError):
-            lcm(5)
-
-
-class TestAreaOfCircle(unittest.TestCase):
-    def test_typical(self):
-        self.assertAlmostEqual(area_of_circle(2), 12.566370614359172)
-
-    def test_zero_radius(self):
-        self.assertEqual(area_of_circle(0), 0)
-
-    def test_negative_radius(self):
-        with self.assertRaises(ValueError):
-            area_of_circle(-1)
-
-    def test_invalid_type(self):
-        with self.assertRaises(TypeError):
-            area_of_circle("r")
-
-
-if __name__ == "__main__":
-    unittest.main()
+            distance(0, 0, "3", 4)
